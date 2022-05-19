@@ -44,7 +44,6 @@ public class App {
     @Autowired
     ExpenditureService expenditureService;
 
-    @Bean
     public void start() {
         if (addressService == null) {System.out.println("fail");return;}
         String s = new String();
