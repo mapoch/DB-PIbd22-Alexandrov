@@ -14,6 +14,7 @@ public class Nomenclature {
     @SequenceGenerator(name= "nomenclatures_id_seq", sequenceName="nomenclatures_id_seq", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "nomenclatures_id_seq")
     private Integer id;
+    public void setId(int new_id) { this.id = new_id; }
     public Integer getId() {
         return id;
     }
@@ -21,6 +22,12 @@ public class Nomenclature {
     @NotNull
     @Size(max = 30)
     private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @ManyToOne
     @JoinColumn(name="expenditure_item_id")

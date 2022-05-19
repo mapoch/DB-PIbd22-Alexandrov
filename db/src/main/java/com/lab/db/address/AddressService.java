@@ -1,17 +1,14 @@
 package com.lab.db.address;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Transactional
 @Service("addressService")
 public class AddressService {
     @Autowired
-    private AddressRepository addressRepository;
+    AddressRepository addressRepository;
 
     @Transactional
     public Address findById(int id) {

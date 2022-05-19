@@ -15,6 +15,7 @@ public class Contractor {
     @SequenceGenerator(name= "contractors_id_seq", sequenceName="contractors_id_seq", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contractors_id_seq")
     private Integer id;
+    public void setId(int new_id) { this.id = new_id; }
     public Integer getId() {
         return id;
     }
@@ -22,9 +23,19 @@ public class Contractor {
     @NotNull
     @Size(max = 40)
     private String name;
+    public void setName(String name) {this.name = name;}
+    public String getName() {
+        return name;
+    }
 
     @Size(max = 15)
     private String phone;
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     @OneToMany
     @JoinColumn(name="contractor_id")

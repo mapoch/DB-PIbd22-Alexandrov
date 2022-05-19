@@ -14,12 +14,19 @@ public class Project {
     @SequenceGenerator(name= "projects_id_seq", sequenceName="projects_id_seq", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "projects_id_seq")
     private Integer id;
+    public void setId(int new_id) { this.id = new_id; }
     public Integer getId() {
         return id;
     }
 
     @NotNull
     private int rooms;
+    public int getRooms() {
+        return rooms;
+    }
+    public void setRooms(int rooms) {
+        this.rooms = rooms;
+    }
 
     @ManyToOne
     @JoinColumn(name="address_id")

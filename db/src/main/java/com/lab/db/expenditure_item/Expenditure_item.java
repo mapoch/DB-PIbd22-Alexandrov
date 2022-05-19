@@ -13,6 +13,7 @@ public class Expenditure_item {
     @SequenceGenerator(name= "expenditure_items_id_seq", sequenceName="expenditure_items_id_seq", allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expenditure_items_id_seq")
     private Integer id;
+    public void setId(int new_id) { this.id = new_id; }
     public Integer getId() {
         return id;
     }
@@ -20,6 +21,12 @@ public class Expenditure_item {
     @NotNull
     @Size(max = 22)
     private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @OneToMany
     @JoinColumn(name="expenditure_item_id")
