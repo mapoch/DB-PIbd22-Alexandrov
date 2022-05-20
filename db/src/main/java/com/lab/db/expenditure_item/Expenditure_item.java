@@ -1,5 +1,6 @@
 package com.lab.db.expenditure_item;
 
+import com.lab.db.contractors_class.Contractors_class;
 import com.lab.db.nomenclature.Nomenclature;
 
 import javax.persistence.*;
@@ -31,4 +32,23 @@ public class Expenditure_item {
     @OneToMany
     @JoinColumn(name="expenditure_item_id")
     private List<Nomenclature> nomenclatures;
+
+    @Override
+    public String toString() {
+        return "[Id = " + getId() + "; name = \'" + getName() + "\']";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Expenditure_item)obj).getId() != this.getId() || ((Expenditure_item) obj).getName() != this.getName())
+            return false;
+        return true;
+    }
 }

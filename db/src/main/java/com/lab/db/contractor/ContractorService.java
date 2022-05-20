@@ -21,8 +21,8 @@ public class ContractorService {
     }
 
     @Transactional
-    public void create(Contractor contractor) {
-        contractorRepository.save(contractor);
+    public Integer create(Contractor contractor) {
+        return contractorRepository.save(contractor).getId();
     }
 
     @Transactional

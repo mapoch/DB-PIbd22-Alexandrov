@@ -21,8 +21,8 @@ public class AddressService {
     }
 
     @Transactional
-    public void create(Address address) {
-        addressRepository.save(address);
+    public Integer create(Address address) {
+        return addressRepository.save(address).getId();
     }
 
     @Transactional
@@ -37,5 +37,10 @@ public class AddressService {
     @Transactional
     public void delete(int id) {
         addressRepository.delete(addressRepository.findById(id).get());
+    }
+
+    @Transactional
+    public Iterable<Address> getBySettlement(String settlement) {
+        return addressRepository.getAddressesBySettlement(settlement);
     }
 }

@@ -36,4 +36,23 @@ public class Nomenclature {
     @OneToMany
     @JoinColumn(name="nomenclature_id")
     private List<Expenditure> expenditures;
+
+    @Override
+    public String toString() {
+        return "[Id = " + getId() + "; name = \'" + getName() + "\']";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Nomenclature)obj).getId() != this.getId() || ((Nomenclature) obj).getName() != this.getName())
+            return false;
+        return true;
+    }
 }

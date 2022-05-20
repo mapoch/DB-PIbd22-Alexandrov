@@ -21,8 +21,8 @@ public class ProjectService {
     }
 
     @Transactional
-    public void create(Project project) {
-        projectRepository.save(project);
+    public Integer create(Project project) {
+        return projectRepository.save(project).getId();
     }
 
     @Transactional

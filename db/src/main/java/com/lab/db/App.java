@@ -16,10 +16,12 @@ import com.lab.db.nomenclature.Nomenclature;
 import com.lab.db.nomenclature.NomenclatureService;
 import com.lab.db.expenditure.Expenditure;
 import com.lab.db.expenditure.ExpenditureService;
+import org.aspectj.lang.annotation.After;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
@@ -50,10 +52,11 @@ public class App {
         while (s != null) {
             System.out.println("What table you want operate?");
             System.out.println("addresses, projects, contractor_classes, contractors,\n" +
-                    "order, expenditure_items, nomenclatures, expenditures\nType exit to exit");
+                    "orders, expenditure_items, nomenclatures, expenditures\nType exit to exit");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             try {
                 s = br.readLine();
+                if(s == null) return;
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }

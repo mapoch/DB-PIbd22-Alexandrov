@@ -2,6 +2,7 @@ package com.lab.db.order;
 
 import com.lab.db.contractor.Contractor;
 import com.lab.db.expenditure.Expenditure;
+import com.lab.db.nomenclature.Nomenclature;
 import com.lab.db.project.Project;
 
 import javax.persistence.*;
@@ -51,4 +52,25 @@ public class Order {
     @OneToMany
     @JoinColumn(name="order_id")
     private List<Expenditure> expenditures;
+
+    @Override
+    public String toString() {
+        return "[Id = " + getId() + "; works_start = \'" + getWorks_start() +
+                "\'; works_end = \'" + getWorks_end() + "\']";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Order)obj).getId() != this.getId() || ((Order) obj).getWorks_start() != this.getWorks_start() ||
+                ((Order) obj).getWorks_end() != this.getWorks_end())
+            return false;
+        return true;
+    }
 }

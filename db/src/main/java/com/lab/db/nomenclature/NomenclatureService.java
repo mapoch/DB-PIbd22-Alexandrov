@@ -21,8 +21,8 @@ public class NomenclatureService {
     }
 
     @Transactional
-    public void create(Nomenclature nomenclature) {
-        nomenclatureRepository.save(nomenclature);
+    public Integer create(Nomenclature nomenclature) {
+        return nomenclatureRepository.save(nomenclature).getId();
     }
 
     @Transactional

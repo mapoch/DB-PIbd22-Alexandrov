@@ -44,4 +44,19 @@ public class Address {
         return "[Id = " + getId() + "; settlement = \'" + getSettlement() +
                 "\'; street = \'" + getStreet() + "\'; house = " + getHouse() + "]";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Address) obj).getId() != this.getId() || ((Address) obj).getSettlement() != this.getSettlement()
+        || ((Address) obj).getStreet() != this.getStreet() || ((Address) obj).getHouse() != this.getHouse())
+            return false;
+        return true;
+    }
 }

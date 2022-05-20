@@ -1,5 +1,6 @@
 package com.lab.db.contractor;
 
+import com.lab.db.address.Address;
 import com.lab.db.contractors_class.Contractors_class;
 import com.lab.db.order.Order;
 
@@ -44,4 +45,25 @@ public class Contractor {
     @ManyToOne
     @JoinColumn(name="class_id")
     private Contractors_class contractors_class;
+
+    @Override
+    public String toString() {
+        return "[Id = " + getId() + "; name = \'" + getName() +
+                "\'; phone = \'" + getPhone() + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Contractor)obj).getId() != this.getId() ||
+                ((Contractor) obj).getName() != this.getName() || ((Contractor) obj).getPhone() != this.getPhone())
+            return false;
+        return true;
+    }
 }

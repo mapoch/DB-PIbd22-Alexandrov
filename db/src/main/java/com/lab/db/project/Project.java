@@ -35,4 +35,23 @@ public class Project {
     @OneToMany
     @JoinColumn(name="project_id")
     private List<Order> orders;
+
+    @Override
+    public String toString() {
+        return "[Id = " + getId() + "; rooms = \'" + getRooms() + "\']";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Project)obj).getId() != this.getId() || ((Project) obj).getRooms() != this.getRooms())
+            return false;
+        return true;
+    }
 }

@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.util.ArrayList;
+
 @Transactional
 @Service("orderService")
 public class OrderService {
@@ -21,8 +24,8 @@ public class OrderService {
     }
 
     @Transactional
-    public void create(Order order) {
-        orderRopository.save(order);
+    public Integer create(Order order) {
+        return orderRopository.save(order).getId();
     }
 
     @Transactional
@@ -36,5 +39,11 @@ public class OrderService {
     @Transactional
     public void delete(int id) {
         orderRopository.delete(orderRopository.findById(id).get());
+    }
+
+    @Transactional
+    public Iterable<Order> getByYear(int year) {
+        if(year >= 1000 && year < 9999) return orderRopository.getOrdersByYear(year);
+        return new ArrayList<Order>();
     }
 }

@@ -1,5 +1,6 @@
 package com.lab.db.expenditure;
 
+import com.lab.db.contractors_class.Contractors_class;
 import com.lab.db.nomenclature.Nomenclature;
 import com.lab.db.order.Order;
 
@@ -42,4 +43,23 @@ public class Expenditure {
     @ManyToOne
     @JoinColumn(name="order_id")
     private Order order;
+
+    @Override
+    public String toString() {
+        return "[Id = " + getId() + "; expense = \'" + getExpense() + "\']";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Expenditure)obj).getId() != this.getId() || ((Expenditure) obj).getExpense() != this.getExpense())
+            return false;
+        return true;
+    }
 }

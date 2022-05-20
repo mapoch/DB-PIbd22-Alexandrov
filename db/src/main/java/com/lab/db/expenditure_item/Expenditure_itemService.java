@@ -21,8 +21,8 @@ public class Expenditure_itemService {
     }
 
     @Transactional
-    public void create(Expenditure_item expenditure_item) {
-        expenditure_itemRepository.save(expenditure_item);
+    public Integer create(Expenditure_item expenditure_item) {
+        return expenditure_itemRepository.save(expenditure_item).getId();
     }
 
     @Transactional

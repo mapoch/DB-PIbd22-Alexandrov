@@ -31,4 +31,23 @@ public class Contractors_class {
     @OneToMany
     @JoinColumn(name="class_id")
     private List<Contractor> contractors;
+
+    @Override
+    public String toString() {
+        return "[Id = " + getId() + "; name = \'" + getName() + "\']";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        if (((Contractors_class)obj).getId() != this.getId() || ((Contractors_class) obj).getName() != this.getName())
+            return false;
+        return true;
+    }
 }
