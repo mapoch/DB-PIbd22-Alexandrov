@@ -24,7 +24,4 @@ public interface ExpenditureRepository
     @Modifying
     @Query(value = "SELECT expense, COUNT(*) FROM expenditures GROUP BY expense;", nativeQuery = true)
     Collection<ResultSet> getGroupted();
-
-    @Query(value = "SELECT * FROM general_view;", nativeQuery = true)
-    Collection<ResultSet> getGeneral();
 }
