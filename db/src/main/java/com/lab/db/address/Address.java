@@ -41,8 +41,8 @@ public class Address {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; settlement = \'" + getSettlement() +
-                "\'; street = \'" + getStreet() + "\'; house = " + getHouse() + "]";
+        return "{\"settlemen\": \"" + getSettlement() +
+                "\", \"street\": \"" + getStreet() + "\", \"house\": \"" + getHouse() + "\"}";
     }
 
     @Override

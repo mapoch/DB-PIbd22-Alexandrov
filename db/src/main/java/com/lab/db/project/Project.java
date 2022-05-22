@@ -38,7 +38,7 @@ public class Project {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; rooms = \'" + getRooms() + "\']";
+        return "{\"rooms\": \"" + getRooms() + "\"}";
     }
 
     @Override

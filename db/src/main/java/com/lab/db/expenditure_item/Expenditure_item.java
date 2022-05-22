@@ -35,7 +35,7 @@ public class Expenditure_item {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; name = \'" + getName() + "\']";
+        return "{\"name\": \"" + getName() + "\"}";
     }
 
     @Override

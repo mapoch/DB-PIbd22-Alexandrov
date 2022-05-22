@@ -39,7 +39,7 @@ public class Nomenclature {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; name = \'" + getName() + "\']";
+        return "{\"name\": \"" + getName() + "\"}";
     }
 
     @Override

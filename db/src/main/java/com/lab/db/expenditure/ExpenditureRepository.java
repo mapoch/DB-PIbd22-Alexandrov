@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.SqlResultSetMapping;
 import java.sql.ResultSet;
 import java.util.Collection;
 
@@ -23,4 +24,7 @@ public interface ExpenditureRepository
     @Modifying
     @Query(value = "SELECT expense, COUNT(*) FROM expenditures GROUP BY expense;", nativeQuery = true)
     Collection<ResultSet> getGroupted();
+
+    @Query(value = "SELECT * FROM general_view;", nativeQuery = true)
+    Collection<ResultSet> getGeneral();
 }

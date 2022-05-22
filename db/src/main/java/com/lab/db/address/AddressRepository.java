@@ -15,6 +15,4 @@ public interface AddressRepository extends CrudRepository<Address, Integer>, Jpa
     @Modifying
     @Query(value = "SELECT * FROM addresses WHERE settlement LIKE ':settlement';", nativeQuery = true)
     Collection<Address> getAddressesBySettlement(@Param("settlement") String settlement);
-
-    //List<Address> findBySettlementLike(String settlement);
 }

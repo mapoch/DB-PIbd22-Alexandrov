@@ -48,8 +48,8 @@ public class Contractor {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; name = \'" + getName() +
-                "\'; phone = \'" + getPhone() + "]";
+        return "{\"name\": \"" + getName() +
+                "\", \"phone\": \"" + getPhone() + "\"}";
     }
 
     @Override

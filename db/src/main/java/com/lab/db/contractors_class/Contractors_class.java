@@ -34,7 +34,7 @@ public class Contractors_class {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; name = \'" + getName() + "\']";
+        return "{\"name\": \"" + getName() + "\"}";
     }
 
     @Override

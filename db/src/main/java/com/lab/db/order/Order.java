@@ -55,8 +55,8 @@ public class Order {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; works_start = \'" + getWorks_start() +
-                "\'; works_end = \'" + getWorks_end() + "\']";
+        return "{\"works_start\": \"" + getWorks_start() +
+                "\", \"works_end\": \"" + getWorks_end() + "\"}";
     }
 
     @Override

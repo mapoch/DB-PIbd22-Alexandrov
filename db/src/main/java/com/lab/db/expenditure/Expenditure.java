@@ -46,7 +46,7 @@ public class Expenditure {
 
     @Override
     public String toString() {
-        return "[Id = " + getId() + "; expense = \'" + getExpense() + "\']";
+        return "{\"expense\": \"" + getExpense() + "\"}";
     }
 
     @Override
